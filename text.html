@@ -11,22 +11,21 @@
    <header>
     <div class="header-container">
         <div class="logo">
-            <img src="images/logo.png" alt="Job Portal Logo">
-            <h1>Job Portal</h1>
+            <img src="insMind-AIDesign202503102049.png" alt="Job Portal Logo">
+            <h1>dreem work</h1>
         </div>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#jobs">Jobs</a></li>
-                <li><a href="#freelancers">Freelancers</a></li>
+                <li><a href="#freelancers">Freelancers</a></li> 
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="aplly.html">Aplly jobs</a></li>
-
+                <li><a href="aplly.html">Apply jobs</a></li>
             </ul>
         </nav>
         <div class="search-container">
             <input type="text" placeholder="Search jobs or freelancers...">
-            <button class="search-button">Search</button>
+            <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
     </div>
 </header>
@@ -35,6 +34,33 @@
             <h2>Welcome to the Job Portal</h2>
             <p>Find the best freelancers or jobs here!</p>
         </section>
+
+        <!-- Slideshow Section -->
+        <section id="slideshow">
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <img src="download.jpg" alt="Slide 1">
+                  
+                </div>
+                <div class="mySlides fade">
+                    <img src="download.jpg" alt="Slide 2">
+                    
+                </div>
+                <div class="mySlides fade">
+                    <img src="download.jpg" alt="Slide 3">
+                   
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <br>
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span> 
+                <span class="dot" onclick="currentSlide(2)"></span> 
+                <span class="dot" onclick="currentSlide(3)"></span> 
+            </div>
+        </section>
+
         <section id="jobs">
             <h2>Available Jobs</h2>
             <div id="job-list" class="job-list"></div>
@@ -44,6 +70,7 @@
         <section id="freelancers">
             <h2>Freelancers</h2>
             <div id="freelancer-list" class="freelancer-list"></div>
+            <button id="load-jobs" class="btn">Load Jobs</button>
         </section>
     </main>
 
@@ -52,7 +79,7 @@
         <div class="footer-section">
             <h3>About Us</h3>
             <ul>
-                <li><a href="#about">Our Story</a></li>
+                <li><a href ="#about">Our Story</a></li>
                 <li><a href="#careers">Careers</a></li>
                 <li><a href="#blog">Blog</a></li>
                 <li><a href="#contact">Contact Us</a></li>
@@ -90,5 +117,33 @@
 </footer>
 
     <script src="script.js"></script>
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+        }
+    </script>
 </body>
 </html>
